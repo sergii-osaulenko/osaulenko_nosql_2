@@ -4,7 +4,7 @@ import os
 import pandas as pd
 from tqdm import tqdm
 
-INPUT_FILE  = "arxiv-metadata-oai-snapshot.json"
+INPUT_FILE  = "data/archive/arxiv-metadata-oai-snapshot.json"
 OUTPUT_FILE = "data/arxiv_subset.parquet"
 MAX_RECORDS = 10_000
 
