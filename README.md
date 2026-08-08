@@ -13,6 +13,8 @@ gitignore
 <br>data/
 <br>embeddings/
 
+---
+
 ## 2. Теоретичні відповіді та обґрунтування
 
 ### Частина 1. Вибір інструментів та ембеддингів
@@ -80,3 +82,37 @@ gitignore
 | **"BERT fine-tuning"** | *The NMSSM Solution to the Fine-Tuning Problem...* (Score: 11.50) | *Misere quotients for impartial games: Supplementary material* (Score: 0.8645) | *The NMSSM Solution to the Fine-Tuning Problem...* (RRF Score: 0.0164) | **BM25 та RRF** відпрацювали краще за точним ключовим словом *"Fine-Tuning"*, знайшовши фундаментальні статті з проблеми тонкого налаштування, тоді як чистий векторний пошук видав шум. |
 | **"Yann LeCun convolutional networks"** | *On Punctured Pragmatic Space-Time Codes in Block Fading Channel* (Score: 13.48) | *Multilayer Perceptron with Functional Inputs: an Inverse Regression Approach* (Score: 0.8479) | *Optimization in Gradient Networks* (RRF Score: 0.0303) | **Гібридний пошук (RRF)** виявився найкращим: він об'єднав семантику нейромереж із терміном *Networks* і поставив на 1-ше місце статтю про *Gradient Networks* (найближче до CNN). |
 | **"making computers understand human emotions from text"** | *An Automated Evaluation Metric for Chinese Text Entry* (Score: 18.27) | *Opinion Dynamics and Sociophysics* (Score: 0.8287) | *On the Development of Text Input Method - Lessons Learned* (RRF Score: 0.0323) | **Векторний пошук** найкраще вловив концепцію соціальної взаємодії та аналізу думок (*Opinion Dynamics and Sociophysics*), тоді як BM25 зреагував лише на слова *Text/Computers*. |
+
+---
+
+## 4. Вивід виконання скриптів (Logs)
+
+### 01_prepare_data.py
+
+Читаємо датасет: 10000it [00:00, 83776.84it/s]
+
+Завантажено статей:10000
+
+Розподіл за категоріями (топ-10):
+category
+astro-ph              1838
+hep-th                 680
+hep-ph                 671
+quant-ph               564
+gr-qc                  350
+cond-mat.mes-hall      307
+cond-mat.str-el        292
+cond-mat.mtrl-sci      291
+cond-mat.stat-mech     271
+math.AG                209
+Name: count, dtype: int64
+
+Розподіл за роками:
+year
+2007    10000
+Name: count, dtype: int64
+
+Приклад запису:
+{'id': '0704.0001', 'title': 'Calculation of prompt diphoton production cross sections at Tevatron and\n  LHC energies', 'abstract': 'A fully differential calculation in perturbative quantum chromodynamics is\npresented for the production of massive photon pairs at hadron colliders. All\nnext-to-leading order perturbative contributions from quark-antiquark,\ngluon-(anti)quark, and gluon-gluon subprocesses are included, as well as\nall-orders resummation of initial-state gluon radiation valid at\nnext-to-next-to-leading logarithmic accuracy. The region of phase space is\nspecified in which the calculation is most reliable. Good agreement is\ndemonstrated with data from the Fermilab Tevatron, and predictions are made for\nmore detailed tests with CDF and DO data. Predictions are shown for\ndistributions of diphoton pairs produced at the energy of the Large Hadron\nCollider (LHC). Distributions of the diphoton pairs from the decay of a Higgs\nboson are contrasted with those produced from QCD processes at the LHC, showing\nthat enhanced sensitivity to the signal can be obtained with judicious\nselection of events.', 'authors': 'BalázsC., BergerE. L., NadolskyP. M., YuanC. -P.', 'year': 2007, 'category': 'hep-ph'}
+
+Збережено вdata/arxiv_subset.parquet
