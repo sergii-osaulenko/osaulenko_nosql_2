@@ -86,7 +86,7 @@ embeddings/
 
 ---
 
-### 4. Вивід виконання скриптів (Logs)
+### 4. Вивід деталей виконання скриптів (Logs)
 
 ##### 01_prepare_data.py
 
@@ -118,4 +118,17 @@ Name: count, dtype: int64
 {'id': '0704.0001', 'title': 'Calculation of prompt diphoton production cross sections at Tevatron and\n  LHC energies', 'abstract': 'A fully differential calculation in perturbative quantum chromodynamics is\npresented for the production of massive photon pairs at hadron colliders. All\nnext-to-leading order perturbative contributions from quark-antiquark,\ngluon-(anti)quark, and gluon-gluon subprocesses are included, as well as\nall-orders resummation of initial-state gluon radiation valid at\nnext-to-next-to-leading logarithmic accuracy. The region of phase space is\nspecified in which the calculation is most reliable. Good agreement is\ndemonstrated with data from the Fermilab Tevatron, and predictions are made for\nmore detailed tests with CDF and DO data. Predictions are shown for\ndistributions of diphoton pairs produced at the energy of the Large Hadron\nCollider (LHC). Distributions of the diphoton pairs from the decay of a Higgs\nboson are contrasted with those produced from QCD processes at the LHC, showing\nthat enhanced sensitivity to the signal can be obtained with judicious\nselection of events.', 'authors': 'BalázsC., BergerE. L., NadolskyP. M., YuanC. -P.', 'year': 2007, 'category': 'hep-ph'}
 
 Збережено вdata/arxiv_subset.parquet
+```
+
+##### 02_embed.py
+
+```logs
+Loading weights: 100%|█████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 25581.30it/s]
+Генеруємо ембеддинги для 10000 текстів...                                                  | 0.00/125 [00:00<?, ?B/s]
+Batches: 100%|████████████████████████████████████████████████████████████████████| 157/157 [58:11<00:00, 22.24s/it]
+
+Загальна кількість оброблених текстів: 10000
+Розмірність ембеддингів: 768
+Норма першого ембеддингу: 1.0000
+Збережено в embeddings/embeddings.npy
 ```
