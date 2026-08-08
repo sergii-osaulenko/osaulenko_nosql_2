@@ -11,7 +11,7 @@
 ```gitignore
 .env
 data/
-embeddings/
+embeddings/```
 
 ---
 
