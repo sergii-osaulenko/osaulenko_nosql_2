@@ -74,19 +74,7 @@ embeddings/
 
 ---
 
-### 3. Порівняльна таблиця методів пошуку
-
-> **Примітка щодо датасету:** Оскільки в роботі використовувалася підмножина архівних наукових статей 2007 року (`arXiv-0704`), сучасні терміни (наприклад, нейромережі трансформерів BERT або роботи Янна ЛеКуна з CNN, популярні в пізніші роки) відсутні в прямому вигляді. Тому пошук виявляє історичні концепції, які збігаються за термінологією (наприклад, Fine-Tuning у фізиці елементарних частинок або перцептрони/градієнтні мережі в ранньому ML).
-
-| Запит | Метод BM25 (Топ-1) | Векторний пошук (Топ-1) | Гібридний пошук із RRF (Топ-1) | Аналіз результатів |
-| :--- | :--- | :--- | :--- | :--- |
-| **"BERT fine-tuning"** | *The NMSSM Solution to the Fine-Tuning Problem...* (Score: 11.50) | *Misere quotients for impartial games: Supplementary material* (Score: 0.8645) | *The NMSSM Solution to the Fine-Tuning Problem...* (RRF Score: 0.0164) | **BM25 та RRF** відпрацювали краще за точним ключовим словом *"Fine-Tuning"*, знайшовши фундаментальні статті з проблеми тонкого налаштування, тоді як чистий векторний пошук видав шум. |
-| **"Yann LeCun convolutional networks"** | *On Punctured Pragmatic Space-Time Codes in Block Fading Channel* (Score: 13.48) | *Multilayer Perceptron with Functional Inputs: an Inverse Regression Approach* (Score: 0.8479) | *Optimization in Gradient Networks* (RRF Score: 0.0303) | **Гібридний пошук (RRF)** виявився найкращим: він об'єднав семантику нейромереж із терміном *Networks* і поставив на 1-ше місце статтю про *Gradient Networks* (найближче до CNN). |
-| **"making computers understand human emotions from text"** | *An Automated Evaluation Metric for Chinese Text Entry* (Score: 18.27) | *Opinion Dynamics and Sociophysics* (Score: 0.8287) | *On the Development of Text Input Method - Lessons Learned* (RRF Score: 0.0323) | **Векторний пошук** найкраще вловив концепцію соціальної взаємодії та аналізу думок (*Opinion Dynamics and Sociophysics*), тоді як BM25 зреагував лише на слова *Text/Computers*. |
-
----
-
-### 4. Вивід деталей виконання скриптів
+### 3. Вивід деталей виконання скриптів
 
 ##### scripts/01_prepare_data.py
 
@@ -272,3 +260,15 @@ Loading weights: 100%|███████████████████�
 [4] Towards Understanding the Origin of Genetic Languages (RRF Score: 0.0159)
 [5] Extracting the hierarchical organization of complex systems (RRF Score: 0.0159)
 ```
+
+---
+
+### 4. Порівняльна таблиця методів пошуку
+
+> **Примітка щодо датасету:** Оскільки в роботі використовувалася підмножина архівних наукових статей 2007 року (`arXiv-0704`), сучасні терміни (наприклад, нейромережі трансформерів BERT або роботи Янна ЛеКуна з CNN, популярні в пізніші роки) відсутні в прямому вигляді. Тому пошук виявляє історичні концепції, які збігаються за термінологією (наприклад, Fine-Tuning у фізиці елементарних частинок або перцептрони/градієнтні мережі в ранньому ML).
+
+| Запит | Метод BM25 (Топ-1) | Векторний пошук (Топ-1) | Гібридний пошук із RRF (Топ-1) | Аналіз результатів |
+| :--- | :--- | :--- | :--- | :--- |
+| **"BERT fine-tuning"** | *The NMSSM Solution to the Fine-Tuning Problem...* (Score: 11.50) | *Misere quotients for impartial games: Supplementary material* (Score: 0.8645) | *The NMSSM Solution to the Fine-Tuning Problem...* (RRF Score: 0.0164) | **BM25 та RRF** відпрацювали краще за точним ключовим словом *"Fine-Tuning"*, знайшовши фундаментальні статті з проблеми тонкого налаштування, тоді як чистий векторний пошук видав шум. |
+| **"Yann LeCun convolutional networks"** | *On Punctured Pragmatic Space-Time Codes in Block Fading Channel* (Score: 13.48) | *Multilayer Perceptron with Functional Inputs: an Inverse Regression Approach* (Score: 0.8479) | *Optimization in Gradient Networks* (RRF Score: 0.0303) | **Гібридний пошук (RRF)** виявився найкращим: він об'єднав семантику нейромереж із терміном *Networks* і поставив на 1-ше місце статтю про *Gradient Networks* (найближче до CNN). |
+| **"making computers understand human emotions from text"** | *An Automated Evaluation Metric for Chinese Text Entry* (Score: 18.27) | *Opinion Dynamics and Sociophysics* (Score: 0.8287) | *On the Development of Text Input Method - Lessons Learned* (RRF Score: 0.0323) | **Векторний пошук** найкраще вловив концепцію соціальної взаємодії та аналізу думок (*Opinion Dynamics and Sociophysics*), тоді як BM25 зреагував лише на слова *Text/Computers*. |
