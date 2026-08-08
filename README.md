@@ -141,3 +141,39 @@ Batches: 100%|██████████████████████
 
 Загальна кількість векторів в індексі: 10000
 ```
+
+##### 04_search.py
+
+```log
+Loading weights: 100%|█████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 33597.65it/s]
+=== Чистий семантичний пошук за запитом: 'teaching machines to recognize objects in pictures' ===
+- [cond-mat.soft] (2007.0) Capturing knots in polymers (Score: 0.8288)
+  Абстракт: This paper visualizes a knot reduction algorithm...
+
+- [physics.ins-det] (2007.0) Symbolic sensors : one solution to the numerical-symbolic interface (Score: 0.8263)
+  Абстракт: This paper introduces the concept of symbolic sensor as an extension of the
+smart sensor one. Then, the links between the physical world and the symbolic
+one are introduced. The creation of symbols is...
+
+- [math.HO] (2007.0) The Mathematics (Score: 0.8256)
+  Абстракт: This is an essay that considering the knowledge structure and language of a
+different nature, attempts to build on an explanation of the object of study
+and characteristics of the mathematical science...
+
+- [physics.comp-ph] (2007.0) Modeling the field of laser welding melt pool by RBFNN (Score: 0.8170)
+  Абстракт: Efficient control of a laser welding process requires the reliable prediction
+of process behavior. A statistical method of field modeling, based on
+normalized RBFNN, can be successfully used to predic...
+
+- [quant-ph] (2007.0) Why should anyone care about computing with anyons? (Score: 0.8146)
+  Абстракт: In this article we present a pedagogical introduction of the main ideas and
+recent advances in the area of topological quantum computation. We give an
+overview of the concept of anyons and their exoti...
+
+=== Пошук з фільтрацією (Приклад A: RL за останні 5 років, cs.LG) ===
+
+=== Порівняння метрик на локальних ембеддингах ===
+Топ-5 Cosine Similarity індекси: [ 378 3350 4115  610 3181]
+Топ-5 Dot Product індекси: [ 378 3350 4115  610 3181]
+Топ-5 L2 Distance індекси: [ 378 3350 4115  610 3181]
+```
