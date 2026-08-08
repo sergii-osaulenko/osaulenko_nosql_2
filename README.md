@@ -88,7 +88,7 @@ embeddings/
 
 ### 4. Вивід деталей виконання скриптів
 
-##### 01_prepare_data.py
+##### scripts/01_prepare_data.py
 
 ```log
 Читаємо датасет: 10000it [00:00, 83776.84it/s]
@@ -120,7 +120,7 @@ Name: count, dtype: int64
 Збережено вdata/arxiv_subset.parquet
 ```
 
-##### 02_embed.py
+##### scripts/02_embed.py
 
 ```log
 Loading weights: 100%|█████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 25581.30it/s]
@@ -133,7 +133,7 @@ Batches: 100%|██████████████████████
 Збережено в embeddings/embeddings.npy
 ```
 
-##### 03_load_to_pinecone.py
+##### scripts/03_load_to_pinecone.py
 
 ```log
 Завантаження даних у Pinecone індекс 'arxiv-papers'...
@@ -142,7 +142,7 @@ Batches: 100%|██████████████████████
 Загальна кількість векторів в індексі: 10000
 ```
 
-##### 04_search.py
+##### scripts/04_search.py
 
 ```log
 Loading weights: 100%|█████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 33597.65it/s]
@@ -178,9 +178,97 @@ overview of the concept of anyons and their exoti...
 Топ-5 L2 Distance індекси: [ 378 3350 4115  610 3181]
 ```
 
-##### 05_chunking.py
+##### scripts/05_chunking.py
 
 ```log
 Loading weights: 100%|█████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 30023.97it/s]
 Чанки успішно завантажено в індекси Pinecone.
+```
+
+##### scripts/06_hybrid_search.py
+
+```log
+Loading weights: 100%|█████████████████████████████████████████████████████████| 199/199 [00:00<00:00, 25641.02it/s]
+
+==================== ЗАПИТ: 'BERT fine-tuning' ====================
+
+--- ТОП-5 BM25 ---
+[1] The NMSSM Solution to the Fine-Tuning Problem, Precision Electroweak
+  Constraints and the Largest LEP Higgs Event Excess (Score: 11.50)
+[2] Fine-Tuning in Brane-antibrane Inflation (Score: 9.50)
+[3] Conformal dynamics in gauge theories via non-perturbative
+  renormalization group (Score: 8.05)
+[4] Inverse Monte-Carlo determination of effective lattice models for SU(3)
+  Yang-Mills theory at finite temperature (Score: 7.34)
+[5] Eternal Inflation is "Expensive" (Score: 6.99)
+
+--- ТОП-5 ВЕКТОРНОГО ПОШУКУ ---
+[1] Misere quotients for impartial games: Supplementary material (Score: 0.8645)
+[2] Introduction to Phase Transitions in Random Optimization Problems (Score: 0.8533)
+[3] Abstract Convexity and Cone-Vexing Abstractions (Score: 0.8500)
+[4] The Compositions of the Differential Operations and Gateaux Directional
+  Derivative (Score: 0.8481)
+[5] Experimental local realism tests without fair sampling assumption (Score: 0.8473)
+
+--- ТОП-5 ГІБРИДНОГО ПОШУКУ (RRF) ---
+[1] The NMSSM Solution to the Fine-Tuning Problem, Precision Electroweak
+  Constraints and the Largest LEP Higgs Event Excess (RRF Score: 0.0164)
+[2] Misere quotients for impartial games: Supplementary material (RRF Score: 0.0164)
+[3] Fine-Tuning in Brane-antibrane Inflation (RRF Score: 0.0161)
+[4] Introduction to Phase Transitions in Random Optimization Problems (RRF Score: 0.0161)
+[5] Conformal dynamics in gauge theories via non-perturbative
+  renormalization group (RRF Score: 0.0159)
+
+==================== ЗАПИТ: 'Yann LeCun convolutional networks' ====================
+
+--- ТОП-5 BM25 ---
+[1] On Punctured Pragmatic Space-Time Codes in Block Fading Channel (Score: 13.48)
+[2] Trellis-Coded Quantization Based on Maximum-Hamming-Distance Binary
+  Codes (Score: 13.37)
+[3] Response of degree-correlated scale-free networks to stimuli (Score: 8.23)
+[4] Numerical evaluation of the upper critical dimension of percolation in
+  scale-free networks (Score: 7.64)
+[5] On Automorphism Groups of Networks (Score: 7.58)
+
+--- ТОП-5 ВЕКТОРНОГО ПОШУКУ ---
+[1] Multilayer Perceptron with Functional Inputs: an Inverse Regression
+  Approach (Score: 0.8479)
+[2] The Netsukuku network topology (Score: 0.8431)
+[3] The Compositions of the Differential Operations and Gateaux Directional
+  Derivative (Score: 0.8429)
+[4] Modeling the field of laser welding melt pool by RBFNN (Score: 0.8346)
+[5] Adaptive classification of temporal signals in fixed-weights recurrent
+  neural networks: an existence proof (Score: 0.8314)
+
+--- ТОП-5 ГІБРИДНОГО ПОШУКУ (RRF) ---
+[1] Optimization in Gradient Networks (RRF Score: 0.0303)
+[2] On Punctured Pragmatic Space-Time Codes in Block Fading Channel (RRF Score: 0.0164)
+[3] Multilayer Perceptron with Functional Inputs: an Inverse Regression
+  Approach (RRF Score: 0.0164)
+[4] Trellis-Coded Quantization Based on Maximum-Hamming-Distance Binary
+  Codes (RRF Score: 0.0161)
+[5] The Netsukuku network topology (RRF Score: 0.0161)
+
+==================== ЗАПИТ: 'making computers understand human emotions from text' ====================
+
+--- ТОП-5 BM25 ---
+[1] An Automated Evaluation Metric for Chinese Text Entry (Score: 18.27)
+[2] On the Development of Text Input Method - Lessons Learned (Score: 17.14)
+[3] Towards Understanding the Origin of Genetic Languages (Score: 16.64)
+[4] Detecting anchoring in financial markets (Score: 12.09)
+[5] Database Manipulation on Quantum Computers (Score: 11.81)
+
+--- ТОП-5 ВЕКТОРНОГО ПОШУКУ ---
+[1] Opinion Dynamics and Sociophysics (Score: 0.8287)
+[2] On the Development of Text Input Method - Lessons Learned (Score: 0.8228)
+[3] Extracting the hierarchical organization of complex systems (Score: 0.8092)
+[4] Novelty and Collective Attention (Score: 0.8028)
+[5] Narratives within immersive technologies (Score: 0.8021)
+
+--- ТОП-5 ГІБРИДНОГО ПОШУКУ (RRF) ---
+[1] On the Development of Text Input Method - Lessons Learned (RRF Score: 0.0323)
+[2] An Automated Evaluation Metric for Chinese Text Entry (RRF Score: 0.0164)
+[3] Opinion Dynamics and Sociophysics (RRF Score: 0.0164)
+[4] Towards Understanding the Origin of Genetic Languages (RRF Score: 0.0159)
+[5] Extracting the hierarchical organization of complex systems (RRF Score: 0.0159)
 ```
